@@ -55,6 +55,11 @@ class SegmentPush(WebPush):
         super().__init__(platform, optin, global_frequency_capping, start_date, end_date, language, push_type)
         self.segment_name = segment_name
 
+    def discountPrice(price_info, discount_rate):
+        discounted_price = price_info - (price_info * discount_rate)
+        print(discounted_price)
+        return discounted_price
+
 
 class PriceAlertPush(WebPush):
     price_info: int
@@ -65,11 +70,6 @@ class PriceAlertPush(WebPush):
         super().__init__(platform, optin, global_frequency_capping, start_date, end_date, language, push_type)
         self.discount_rate = discount_rate
         self.price_info = price_info
-
-    def discountPrice(self, price_info, discount_rate):
-        discounted_price = price_info - (price_info * discount_rate)
-        print(discounted_price)
-        return discounted_price
 
 
 class InstockPush(WebPush):

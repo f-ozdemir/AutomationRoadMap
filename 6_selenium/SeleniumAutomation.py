@@ -56,16 +56,16 @@ class DEFACTO(unittest.TestCase):
         assert self.wait.until(
             ec.presence_of_element_located(self.IS_ON_PRODUCT_PAGE)).is_displayed(), "could not go to the product page"
 
-        assert self.wait.until(ec.presence_of_element_located(self.SIZE)).is_displayed(), 'It is not loaded size'
+        assert self.wait.until(ec.presence_of_element_located(self.SIZE)).is_displayed(), "It is not loaded size"
         self.wait.until(ec.presence_of_all_elements_located(self.CHOOSE_SIZE))[0].click()
 
         self.wait.until(ec.element_to_be_clickable(self.ADD_TO_CART)).click()
 
         self.wait.until(ec.element_to_be_clickable(self.CART_PAGE)).click()
-        assert self.wait.until(ec.presence_of_element_located(self.IS_ON_CART_PAGE)).is_displayed(), 'It not cart page'
+        assert self.wait.until(ec.presence_of_element_located(self.IS_ON_CART_PAGE)).is_displayed(), "It not cart page"
 
         self.wait.until(ec.element_to_be_clickable(self.MAIN_PAGE)).click()
-        assert self.wait.until(ec.presence_of_element_located(self.IS_ON_MAIN_PAGE)).is_displayed(), 'It not main page'
+        assert self.wait.until(ec.presence_of_element_located(self.IS_ON_MAIN_PAGE)).is_displayed(), "It not main page"
 
         def tearDown(self):
             self.driver.quit()
