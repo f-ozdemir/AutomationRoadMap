@@ -1,4 +1,5 @@
-"""3.
+"""
+3.
 Kullanıcının girdiği vize1,vize2,final notlarına notlarına göre harf notunu hesaplayın.
 vize1 toplam notun %30'una etki edecek.
 vize2 toplam notun %30'una etki edecek.
@@ -12,6 +13,7 @@ Toplam Not >=  65 -----> DC
 Toplam Not >=  60 -----> DD
 Toplam Not >=  55 -----> FD
 Toplam Not <  55 -----> FF
+
 """
 
 vize1 = float(input('vize1 notunuz: '))
@@ -23,6 +25,7 @@ print(GecmeNotu)
 
 if GecmeNotu >= 90:
     print('AA')
+
 elif GecmeNotu >= 85:
     print('AB')
 

@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 class DEFACTO(unittest.TestCase):
     """ Test Case is:
+
     https://www.defacto.com.tr/ adresine gidin.
     Herhangi bir kategori sayfasına gidin.
     Herhangi bir ürün sayfasına gidin.
@@ -20,11 +21,12 @@ class DEFACTO(unittest.TestCase):
     Locator’lar sayfanın üst bölümünde tanımlanacak.
     Test bittikten sonra driver kapatılacak.
     Sayfaların doğruluğunun kontrolü için her adımda assertion kullanılacak.
+
     """
 
-    CATEGORY_PAGE = (By.CSS_SELECTOR, ".mainmenu-item")  # 1
-    PRODUCT_PAGE = (By.CSS_SELECTOR, ".product-items")  # 0
-    CHOOSE_SIZE = (By.CSS_SELECTOR, "div[id='productDetailSizeButtons'] > button")  # 0
+    CATEGORY_PAGE = (By.CSS_SELECTOR, ".mainmenu-item")
+    PRODUCT_PAGE = (By.CSS_SELECTOR, ".product-items")
+    CHOOSE_SIZE = (By.CSS_SELECTOR, "div[id='productDetailSizeButtons'] > button")
     ADD_TO_CART = (By.CSS_SELECTOR, ".product-info-action-add-to-cart")
     CART_PAGE = (By.XPATH, "//a[contains(text(),'SEPETE GİT')]")
     MAIN_PAGE = (By.CSS_SELECTOR, ".header-logo")
@@ -44,15 +46,15 @@ class DEFACTO(unittest.TestCase):
         self.wait = WebDriverWait(self.driver, 15)
 
     def test_navigate(self):
-        assert "DeFacto ile Kadın ve Erkek Giyimde Akdeniz Modası" in self.driver.title
+        assert "DeFacto ile Kadın ve Erkek Giyimde Akdeniz Modası" in self.driver.title, "Not in homepage"
 
         self.wait.until(ec.presence_of_all_elements_located(self.CATEGORY_PAGE))[1].click()
         is_on_category = self.wait.until(ec.presence_of_all_elements_located(self.IS_ON_CATEGORY_PAGE))[1].text
-        assert is_on_category == "KADIN"
+        assert is_on_category == "KADIN", "Could not go to the KADIN category"
 
         self.wait.until(ec.presence_of_all_elements_located(self.PRODUCT_PAGE))[0].click()
         assert self.wait.until(
-            ec.presence_of_element_located(self.IS_ON_PRODUCT_PAGE)).is_displayed(), 'It is not loaded size'
+            ec.presence_of_element_located(self.IS_ON_PRODUCT_PAGE)).is_displayed(), "could not go to the product page"
 
         assert self.wait.until(ec.presence_of_element_located(self.SIZE)).is_displayed(), 'It is not loaded size'
         self.wait.until(ec.presence_of_all_elements_located(self.CHOOSE_SIZE))[0].click()
