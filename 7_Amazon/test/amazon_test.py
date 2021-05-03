@@ -1,27 +1,25 @@
 import unittest
 
-from selenium import webdriver
-
 from base.base_page import BaseClass
 from pages.login_page import LoginPage
 from pages.main_page import AMAZON
 from pages.product_page import ProductPage
 from pages.search_page import SearchPage
+from selenium import webdriver
 
 
 class Amazon(unittest.TestCase):
-    """
-    Test case is:
-    1.  http://www.amazon.com sitesine gidecek ve anasayfanın açıldığını assertion ile onaylayacak,
-    2. Login ekranını açıp, bir kullanıcı ile login olunacak ( daha önce siteye üyeliği varsa o olabilir )
-    3. Ekranin ustundeki Search alanına 'samsung' yazıp ara butonuna tıklanacak,
-    4. Gelen sayfada samsung icin sonuc bulunduğunu onaylayacak,
-    5. Arama sonuçlarından 2. sayfaya tıklayacak ve açılan sayfada 2. sayfanin şu an gösterimde oldugunu onaylayacak,
-    6. Üstten 3. urunun içindeki 'Add to List' butonuna tıklayacak,
-    7. Ekranin en üstündeki 'List' linkine tiklayacak içerisinden Wish listi seçecek,
-    8. Acilan sayfada bir onceki sayfada izlemeye alinmis urunun bulundugunu onaylayacak,
-    9. Favorilere alinan bu urunun yanindaki 'Delete' butonuna basarak, favorilerimden cikaracak,
-    10. Sayfada bu urunun artik favorilere alinmadigini onaylayacak.
+    """ Test case is:
+        1. Go http://www.amazon.com and confirm
+        2. Open the login page and log-in with your account
+        3. Type 'samsung' to the search box and click to the search button
+        4. Confirm that there are results for 'samsung'
+        5. Go second page of the search page and confirm that it is the second page
+        6. Click on the third product of the top and click 'Add to List' button
+        7. Click on the "View Your List" where is the top of the page
+        8. Confirm that the same product is added from previous page
+        9. Delete this product from wishlist page by clicking 'Delete item' button
+        10. Confirm that this product no longer on the wishlist
 
     """
 

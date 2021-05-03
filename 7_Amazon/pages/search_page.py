@@ -7,7 +7,6 @@ class SearchPage:
     SEARCH_TEXTBOX = (By.ID, 'twotabsearchtextbox')
     SEARCH_SUBMIT_BUTTON = (By.ID, "nav-search-submit-button")
     SEARCH_TEXT = "samsung"
-
     SEARCH_RESULT_LINK = (By.ID, 'search')
     SECOND_PAGE_BUTTON = (By.XPATH, "//li[@class = 'a-normal']//a[text() = '2']")
     PRODUCT_PAGE = (By.XPATH, "(//a[@class = 'a-link-normal a-text-normal'])[2]")
